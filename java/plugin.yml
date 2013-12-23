@@ -1,0 +1,20 @@
+name: DrakonnasSystem
+main: com.comze_instancelabs.drakonnassystem.Main
+version: 1.0
+author: instancelabs
+commands:
+   register:
+      description: Register your account from ingame
+      usage: /register [email] [password]
+   addpoints:
+      description: Add points to a player
+      usage: /addpoints [name] [amount]
+   removepoints:
+      description: Remove points from a player
+      usage: /removepoints [name] [amount]
+   points:
+      description: Get current points of a player
+      usage: /points [name]
+   pointstop:
+      description: Top 10 Players
+      usage: /pointstop
