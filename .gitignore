@@ -6,3 +6,4 @@ bin
 *.rar
 *.zip
 web/config.php
+web/store/include/config.php
