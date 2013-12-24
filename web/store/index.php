@@ -53,7 +53,7 @@ require_once("./include/config.php");
                   <ul class="dropdown-menu">
                     <li class="customhandler"><a href="#myModal" data-target="#myModal" data-toggle="modal">Login</a></li>
                     <li class="customhandler"><a href="#myModal2" data-target="#myModal2" data-toggle="modal">Register</a></li>
-                    <li class="customhandler2 hide"><a href="logout.php?referer=<?php echo(basename(__FILE__, '.php')); ?>">Logout</a></li>
+                    <li class="customhandler2 hide"><a href="../logout.php?referer=<?php echo(basename(__FILE__, '.php')); ?>">Logout</a></li>
                   </ul>
                 </li>
               </ul>
