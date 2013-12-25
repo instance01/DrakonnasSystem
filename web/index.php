@@ -76,7 +76,7 @@ ob_start("ob_gzhandler");
           <div class="container">
             <div class="carousel-caption">
               <p><img src='logo.png'></p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign in</a></p>
+              <p><a class="btn btn-lg btn-primary" role="button" href="#myModal" data-target="#myModal" data-toggle="modal">Sign in</a></p>
             </div>
           </div>
         </div>
