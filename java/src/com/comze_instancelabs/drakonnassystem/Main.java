@@ -234,7 +234,7 @@ public class Main extends JavaPlugin implements Listener{
 			ResultSet res3 = c.createStatement().executeQuery("SELECT id FROM players WHERE player='" + p_ + "'");
 			if(!res3.isBeforeFirst()){
 				// there's no such user
-				c.createStatement().executeUpdate("INSERT INTO players(id, uuid, player, rank, banned, timespent, points, online) VALUES('0', '', '" + p_ + "', '', '" + banned + "', '" + Integer.toString(ptime.get(p_)) + "', '" + Integer.toString(ppoints.get(p_)) + "', '" + Integer.toString(online) +"')");
+				c.createStatement().executeUpdate("INSERT INTO players(id, uuid, player, rank, banned, timespent, points, online, email, password, registerkey) VALUES('0', '', '" + p_ + "', '', '" + banned + "', '" + Integer.toString(ptime.get(p_)) + "', '" + Integer.toString(ppoints.get(p_)) + "', '" + Integer.toString(online) +"', '', '', '')");
 			}else{
 				c.createStatement().executeUpdate("UPDATE players SET timespent=" + Integer.toString(ptime.get(p_)) + ", banned=" + Integer.toString(banned) + ", online=" + Integer.toString(online) + ", points=" + Integer.toString(ppoints.get(p_)) + " WHERE player='" + p_ + "' ");
 			}
@@ -246,7 +246,7 @@ public class Main extends JavaPlugin implements Listener{
 			}
 			
 			try {
-				c.createStatement().executeUpdate("INSERT INTO players(id, uuid, player, rank, banned, timespent, points, online) VALUES('0', '', '" + p_ + "', '', '" + banned + "', '" + Integer.toString(ptime.get(p_)) + "', '" + Integer.toString(ppoints.get(p_)) + "', '" + Integer.toString(online) +"')");
+				c.createStatement().executeUpdate("INSERT INTO players(id, uuid, player, rank, banned, timespent, points, online, email, password, registerkey) VALUES('0', '', '" + p_ + "', '', '" + banned + "', '" + Integer.toString(ptime.get(p_)) + "', '" + Integer.toString(ppoints.get(p_)) + "', '" + Integer.toString(online) +"', '', '', '')");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 				for(StackTraceElement st : e1.getStackTrace()){
