@@ -46,7 +46,7 @@ require_once("./include/config.php");
                 <li><a href="../bans.php">Bans</a></li>
                 <li><a href="../votes.php">Voting</a></li>
                 <li><a href="../staff.php">Staff</a></li>
-                <li class="active"><a href="store/">Shop</a></li>
+                <li class="active"><a href="#">Shop</a></li>
                 <li><a href="../forum.php">Forum</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
@@ -85,65 +85,200 @@ require_once("./include/config.php");
 
     <div class="container marketing">
     <?php
+	$points = 0;
+	if(isset($_COOKIE['drakonnaspvp'])){
+		$cookie = $_COOKIE['drakonnaspvp'];
+		$content = base64_decode ($cookie);
+		list($email, $hashed_password) = explode (':', $content);
 	
-	$email = $_GET['email'];
-	
+		$con = mysql_connect($mysql_hostname, $mysql_user, $mysql_password);
+		mysql_select_db("$mysql_database", $con);
+		
+		$query = mysql_query("SELECT * FROM players WHERE email='$email'")or die(mysql_error());
+		
+		while($row2 = mysql_fetch_array($query))
+		{
+			$points = $row2['points'];
+		}
+	}
 	?>
+    <h3>Your balance: <?php echo($points); ?></h3>
+    <div class="well">
+    
+    <h3>Points Shop</h3>
+    <div class="row">
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../diamond.png" alt="DR Points">
+      <div class="caption">
+        <h3>300 DR Points - 1$</h3>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo $paypal; ?>"/>
-<input type="hidden" name="item_name" value="Purchase 1000 DR Points for account <?php echo $email; ?>"/>
+<input type="hidden" name="item_name" value="Purchase 300 DR Points for account <?php echo $email; ?>"/>
 <input type="hidden" name="item_number" value="<?php echo $email; ?>"/>
-<input type="hidden" name="amount" value="5"/> <!-- 5$ -->
+<input type="hidden" name="amount" value="1"/> <!-- 1$ -->
 <input type="hidden" name="return" value="http://mc.drakonnaspvp.com/store/index.php">
 <input type="hidden" name="cancel_return" value="http://mc.drakonnaspvp.com/store/index.php" />
 <input type="hidden" name="notify_url" value="http://mc.drakonnaspvp.com/store/ipn.php">
 <input type="hidden" name="custom" value="1"/>
 <input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>"/>
-<center><input type='submit' class="btn" value='Purchase 1000 DR Points' /></center>
-</form>
+<center><input type='submit' class="btn btn-block btn-success" value='Purchase 300 DR Points' /></center>
+</form>       
+      </div>
+    </div>
+    </div>
 
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../diamond.png" alt="DR Points">
+      <div class="caption">
+        <h3>1500 DR Points - 5$</h3>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo $paypal; ?>"/>
-<input type="hidden" name="item_name" value="Purchase 2000 DR Points for account <?php echo $email; ?>"/>
+<input type="hidden" name="item_name" value="Purchase 1500 DR Points for account <?php echo $email; ?>"/>
 <input type="hidden" name="item_number" value="<?php echo $email; ?>"/>
-<input type="hidden" name="amount" value="10"/> <!-- 10$ -->
+<input type="hidden" name="amount" value="5"/> <!-- 5$ -->
 <input type="hidden" name="return" value="http://mc.drakonnaspvp.com/store/index.php">
 <input type="hidden" name="cancel_return" value="http://mc.drakonnaspvp.com/store/index.php" />
 <input type="hidden" name="notify_url" value="http://mc.drakonnaspvp.com/store/ipn.php">
 <input type="hidden" name="custom" value="2"/>
 <input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>"/>
-<center><input type='submit' class="btn" value='Purchase 2000 DR Points' /></center>
-</form>
-
+<center><input type='submit' class="btn btn-block btn-success" value='Purchase 1500 DR Points' /></center>
+</form>        
+      </div>
+    </div>
+    </div>
+    
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../diamond.png" alt="DR Points">
+      <div class="caption">
+        <h3>3000 DR Points - 10$</h3>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo $paypal; ?>"/>
-<input type="hidden" name="item_name" value="Purchase 5000 DR Points for account <?php echo $email; ?>"/>
+<input type="hidden" name="item_name" value="Purchase 3000 DR Points for account <?php echo $email; ?>"/>
 <input type="hidden" name="item_number" value="<?php echo $email; ?>"/>
-<input type="hidden" name="amount" value="20"/> 
+<input type="hidden" name="amount" value="10"/> 
 <input type="hidden" name="return" value="http://mc.drakonnaspvp.com/store/index.php">
 <input type="hidden" name="cancel_return" value="http://mc.drakonnaspvp.com/store/index.php" />
 <input type="hidden" name="notify_url" value="http://mc.drakonnaspvp.com/store/ipn.php">
 <input type="hidden" name="custom" value="3"/>
 <input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>"/>
-<center><input type='submit' class="btn" value='Purchase 5000 DR Points' /></center>
-</form>
+<center><input type='submit' class="btn btn-block btn-success" value='Purchase 3000 DR Points' /></center>
+</form>        
+      </div>
+    </div>
+    </div>
 
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../diamond.png" alt="DR Points">
+      <div class="caption">
+        <h3>6000 DR Points - 18$</h3>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo $paypal; ?>"/>
-<input type="hidden" name="item_name" value="Purchase 10000 DR Points for account <?php echo $email; ?>"/>
+<input type="hidden" name="item_name" value="Purchase 6000 DR Points for account <?php echo $email; ?>"/>
 <input type="hidden" name="item_number" value="<?php echo $email; ?>"/>
-<input type="hidden" name="amount" value="30"/> 
+<input type="hidden" name="amount" value="18"/> 
 <input type="hidden" name="return" value="http://mc.drakonnaspvp.com/store/index.php">
 <input type="hidden" name="cancel_return" value="http://mc.drakonnaspvp.com/store/index.php" />
 <input type="hidden" name="notify_url" value="http://mc.drakonnaspvp.com/store/ipn.php">
 <input type="hidden" name="custom" value="4"/>
 <input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>"/>
-<center><input type='submit' class="btn" value='Purchase 10000 DR Points' /></center>
+<center><input type='submit' class="btn btn-block btn-success" value='Purchase 6000 DR Points' /></center>
+</form>        
+      </div>
+    </div>
+    </div>
+    
+    
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../diamond.png" alt="DR Points">
+      <div class="caption">
+        <h3>12000 DR Points - 35$</h3>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
+<input type="hidden" name="cmd" value="_xclick" />
+<input type="hidden" name="business" value="<?php echo $paypal; ?>"/>
+<input type="hidden" name="item_name" value="Purchase 12000 DR Points for account <?php echo $email; ?>"/>
+<input type="hidden" name="item_number" value="<?php echo $email; ?>"/>
+<input type="hidden" name="amount" value="35"/> 
+<input type="hidden" name="return" value="http://mc.drakonnaspvp.com/store/index.php">
+<input type="hidden" name="cancel_return" value="http://mc.drakonnaspvp.com/store/index.php" />
+<input type="hidden" name="notify_url" value="http://mc.drakonnaspvp.com/store/ipn.php">
+<input type="hidden" name="custom" value="5"/>
+<input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>"/>
+<center><input type='submit' class="btn btn-block btn-success" value='Purchase 12000 DR Points' /></center>
+</form>        
+      </div>
+    </div>
+    </div>
+    
+    
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../diamond.png" alt="DR Points">
+      <div class="caption">
+        <h3>24000 DR Points - 75$</h3>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
+<input type="hidden" name="cmd" value="_xclick" />
+<input type="hidden" name="business" value="<?php echo $paypal; ?>"/>
+<input type="hidden" name="item_name" value="Purchase 24000 DR Points for account <?php echo $email; ?>"/>
+<input type="hidden" name="item_number" value="<?php echo $email; ?>"/>
+<input type="hidden" name="amount" value="75"/> 
+<input type="hidden" name="return" value="http://mc.drakonnaspvp.com/store/index.php">
+<input type="hidden" name="cancel_return" value="http://mc.drakonnaspvp.com/store/index.php" />
+<input type="hidden" name="notify_url" value="http://mc.drakonnaspvp.com/store/ipn.php">
+<input type="hidden" name="custom" value="6"/>
+<input type="hidden" name="currency_code" value="<?php echo $currency_code; ?>"/>
+<center><input type='submit' class="btn btn-block btn-success" value='Purchase 24000 DR Points' /></center>
+</form>        
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+	</div>
+    
+    <div class="well">
+    
+    <h3>Ranks Shop</h3>
+    <div class="row">
+    <?php
+	$con = mysql_connect($mysql_hostname, $mysql_user, $mysql_password);
+		mysql_select_db("$mysql_database", $con);
+		
+		$query = mysql_query("SELECT * FROM shop")or die(mysql_error());
+		
+		while($row2 = mysql_fetch_array($query))
+		{
+			$id = $row2['id'];
+			$cost = $row2['cost'];
+			$name = $row2['name'];
+			echo('<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../emerald.png" alt="wat lulz">
+      <div class="caption">
+        <h3>' . $name . ' - ' . $cost .' DR Points</h3>
+<form action="buy.php" method="get" target="_self">
+<input type="hidden" value="'.$id.'">
+<center><input type="submit" class="btn btn-block btn-success" value="Purchase" /></center>
 </form>
+      </div>
+    </div>
+    </div>');
+
+		}
+	?>
+    </div>
+    </div>
+
+
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>

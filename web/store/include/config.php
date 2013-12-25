@@ -26,7 +26,7 @@ $dep_url = "http://mc.drakonnaspvp.com/store";
 $virtual_currency = "DR Points";
 
 //The email where you will be accepting payments to.
-$paypal = "your_paypal@domain.com";
+$paypal = "jarroddevlin@gmail.com";
 
 //The currency symbol you will be accepting payments in.
 $currency_symbol = " $";
@@ -40,13 +40,15 @@ $currency_code = "USD";
 //to use the default values.
 
 //Diamond Ore One: Input the price below for 10 Tokens
-$diamond1 = "10";
+$diamond1 = "1";
 //Diamond Ore Two: Input the price below for 25 Tokens
-$diamond2 = "25";
+$diamond2 = "5";
 //Diamond Ore Three: Input the price below for 50 Tokens
-$diamond3 = "50";
+$diamond3 = "10";
 //Diamond Ore Four: Input the price below for 100 Tokens
-$diamond4 = "100";
+$diamond4 = "18";
+$diamond5 = "35";
+$diamond6 = "75";
 
 
 // -----------------------------------------------------------------------------------------

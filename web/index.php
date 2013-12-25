@@ -219,7 +219,7 @@ $query = mysql_query("SELECT * FROM players ORDER BY timespent DESC LIMIT 10")or
 while($row2 = mysql_fetch_array($query))
 {
 	$thingy = round($row2['timespent'] / 3600, 2); // convert seconds to hours
-   	echo(" <p><img id='" . $row2['player'] . "' src='face.php?u=".$row2['player']."&s=32' class='ppoints' data-toggle='tooltip' title='".$row2['player']."' /> ".$thingy." h</p>");
+   	echo(" <p><img id='" . $row2['player'] . "1' src='face.php?u=".$row2['player']."&s=32' class='ppoints' data-toggle='tooltip' title='".$row2['player']."' /> ".$thingy." h</p>");
 }
 
 ?>
@@ -315,7 +315,10 @@ while($row2 = mysql_fetch_array($query))
      	$(".ppoints").tooltip();
 		
 		$("#InstanceLabs").mouseover(function(e) {
-            $(this).effect("bounce");
+            $(this).effect("pulsate");
+        });
+		$("#InstanceLabs1").mouseover(function(e) {
+            $(this).effect("pulsate");
         });
 		
 		if ((screen.width>=1800) && (screen.height>=890)) {

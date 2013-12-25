@@ -89,6 +89,8 @@ $errmsg = '';
     $package2 = "2";
     $package3 = "3";
     $package4 = "4";
+	$package4 = "5";
+	$package4 = "6";
     $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
     mysql_select_db($mysql_database, $bd) or die("Could not select database");
     $crtable = sprintf("CREATE TABLE IF NOT EXISTS `transactions` ( 
@@ -106,7 +108,7 @@ $errmsg = '';
 
     if ($_POST['custom'] == $package1) {
        if ($_POST['mc_gross'] == $diamond1) {
-            $updatetbl = sprintf("UPDATE players SET points = points + 1000 WHERE email = '$useremail'");
+            $updatetbl = sprintf("UPDATE players SET points = points + 300 WHERE email = '$useremail'");
             $record_transaction = sprintf("INSERT INTO transactions (registered_email, tokens_purchased, total_paid, first_name, last_name, paypal_email, date)
              VALUES ('$useremail','$newtoken','$gross','$firstname','$lastname','$payeremail','$current_date')");
             mysql_query($updatetbl);
@@ -115,7 +117,7 @@ $errmsg = '';
     }
     if ($_POST['custom'] == $package2) {
        if ($_POST['mc_gross'] == $diamond2) {
-            $updatetbl = sprintf("UPDATE players SET points = points + 2000 WHERE email = '$useremail'");
+            $updatetbl = sprintf("UPDATE players SET points = points + 1500 WHERE email = '$useremail'");
             $record_transaction = sprintf("INSERT INTO transactions (registered_email, tokens_purchased, total_paid, first_name, last_name, paypal_email, date)
              VALUES ('$useremail','$newtoken','$gross','$firstname','$lastname','$payeremail','$current_date')");
             mysql_query($updatetbl);
@@ -124,7 +126,7 @@ $errmsg = '';
     }
     if ($_POST['custom'] == $package3) {
        if ($_POST['mc_gross'] == $diamond3) {
-            $updatetbl = sprintf("UPDATE players SET points = points + 5000 WHERE email = '$useremail'");
+            $updatetbl = sprintf("UPDATE players SET points = points + 3000 WHERE email = '$useremail'");
             $record_transaction = sprintf("INSERT INTO transactions (registered_email, tokens_purchased, total_paid, first_name, last_name, paypal_email, date)
              VALUES ('$useremail','$newtoken','$gross','$firstname','$lastname','$payeremail','$current_date')");
             mysql_query($updatetbl);
@@ -133,7 +135,25 @@ $errmsg = '';
     }
     if ($_POST['custom'] == $package4) {
        if ($_POST['mc_gross'] == $diamond4) {
-            $updatetbl = sprintf("UPDATE players SET points = points + 10000 WHERE email = '$useremail'");
+            $updatetbl = sprintf("UPDATE players SET points = points + 6000 WHERE email = '$useremail'");
+            $record_transaction = sprintf("INSERT INTO transactions (registered_email, tokens_purchased, total_paid, first_name, last_name, paypal_email, date)
+             VALUES ('$useremail','$newtoken','$gross','$firstname','$lastname','$payeremail','$current_date')");
+            mysql_query($updatetbl);
+            mysql_query($record_transaction);
+       }
+    }
+	if ($_POST['custom'] == $package5) {
+       if ($_POST['mc_gross'] == $diamond5) {
+            $updatetbl = sprintf("UPDATE players SET points = points + 12000 WHERE email = '$useremail'");
+            $record_transaction = sprintf("INSERT INTO transactions (registered_email, tokens_purchased, total_paid, first_name, last_name, paypal_email, date)
+             VALUES ('$useremail','$newtoken','$gross','$firstname','$lastname','$payeremail','$current_date')");
+            mysql_query($updatetbl);
+            mysql_query($record_transaction);
+       }
+    }
+	if ($_POST['custom'] == $package6) {
+       if ($_POST['mc_gross'] == $diamond6) {
+            $updatetbl = sprintf("UPDATE players SET points = points + 24000 WHERE email = '$useremail'");
             $record_transaction = sprintf("INSERT INTO transactions (registered_email, tokens_purchased, total_paid, first_name, last_name, paypal_email, date)
              VALUES ('$useremail','$newtoken','$gross','$firstname','$lastname','$payeremail','$current_date')");
             mysql_query($updatetbl);
