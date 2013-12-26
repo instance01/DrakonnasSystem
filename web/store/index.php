@@ -266,7 +266,7 @@ require_once("./include/config.php");
       <div class="caption">
         <h3>' . $name . ' - ' . $cost .' DR Points</h3>
 <form action="buy.php" method="get" target="_self">
-<input type="hidden" value="'.$id.'">
+<input type="hidden" name="id" value="'.$id.'">
 <center><input type="submit" class="btn btn-block btn-success" value="Purchase" /></center>
 </form>
       </div>
