@@ -63,6 +63,7 @@ public class Main extends JavaPlugin implements Listener{
 			@Override
 			public void run() {
 				syncSaveAll();
+				processPendingTransactions();
 			}
 		}, 20 * 60 * minutes, 20 * 60 * minutes);
 	}
@@ -150,6 +151,9 @@ public class Main extends JavaPlugin implements Listener{
 			ppoints.put(event.getPlayer().getName(), 0);
 			this.MySQLSavePlayerData(event.getPlayer().getName(), 1);
 		}
+		
+		// PROCESS NEW TRANSACTIONS
+		processPendingTransactions();
 	}
 	
 	@EventHandler
@@ -375,7 +379,7 @@ public class Main extends JavaPlugin implements Listener{
 			    String cmd = res3.getString("command");
 			    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
 			}
-			c.createStatement().executeQuery("DELETE FROM item_transactions");
+			c.createStatement().executeUpdate("DELETE FROM item_transactions");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
