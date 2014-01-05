@@ -15,8 +15,9 @@ All features:
 * Shows all players currently online
 * Tracks and shows player stats like time spent
 * Shop for buying ranks/items
+* Automatically gives bought items from webshop ingame
 * Ranks/Items in shop can also be bought with points
 * ingame plugin hooking into a few minigames plugins etc. gives players possibility to earn points
 * sleeek design
 * fully customizable
-* uses phpBB as forum software
+
