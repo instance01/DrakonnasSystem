@@ -362,5 +362,23 @@ public class Main extends JavaPlugin implements Listener{
 	public static Integer getPoints(String name){
 		return ppoints.get(name);
 	}
+	
+	public void processPendingTransactions(){
+		MySQL MySQL = new MySQL(host, "3306", database, username, password);
+    	Connection c = null;
+    	c = MySQL.open();
+		
+		//get all transactions, execute them and clear the table afterwards
+		try {
+			ResultSet res3 = c.createStatement().executeQuery("SELECT * FROM item_transactions");
+			while (res3.next()) {
+			    String cmd = res3.getString("command");
+			    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+			}
+			c.createStatement().executeQuery("DELETE FROM item_transactions");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
