@@ -257,12 +257,13 @@ require_once("./include/config.php");
 		
 		while($row2 = mysql_fetch_array($query))
 		{
+			$imgurl = $row2['imgurl'];
 			$id = $row2['id'];
 			$cost = $row2['cost'];
 			$name = $row2['name'];
 			echo('<div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="../emerald.png" alt="wat lulz">
+      <img src="'.$imgurl.'" alt="Image not found">
       <div class="caption">
         <h3>' . $name . ' - ' . $cost .' DR Points</h3>
 <form action="buy.php" method="get" target="_self">
